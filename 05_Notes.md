@@ -12,3 +12,5 @@
 - [Install TALib on Google Colab](https://stackoverflow.com/questions/49648391/how-to-install-ta-lib-in-google-colab)
 
 - NOTE: Make sure you have `numpy>=1.20.0` then only import talib will work properly.
+
+- TA-Lib uses numpy arrays, we can make a numpy array of closing prices of BTCUSDT, or S&P 500, then we can apply different indicators on it.
