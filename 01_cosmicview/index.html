@@ -4,29 +4,62 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
     <title>CosmicView</title>
   </head>
   <body>
     <h2>TRADES</h2>
-
+    <div id="chart"></div>
     <div id="trades"></div>
 
+    <!-- User placeholder section for configurable RSI Component-->
+    <h3>Settings</h3>
+    <div id="settings">
+      RSI <input type="checkbox" />
+      <input type="text" name="rsi_length" id="rsi_length" placeholder="14" />
+      <!-- RSI to tell you when a coin is oversold or overbought, default being 30 and 70 -->
+      Overbought
+      <input
+        type="text"
+        id="rsi_overbought"
+        name="rsi_overbought"
+        placeholder="70"
+      />
+
+      Oversold
+      <input
+        type="text"
+        id="rsi_oversold"
+        name="rsi_oversold"
+        placeholder="30"
+      />
+    </div>
+
+    <!-- Script for displaying websocket stream on the page -->
     <script>
+      /*   
       var binanceSocket = new WebSocket(
         "wss://stream.binance.com:9443/ws/btcusdt@trade"
       );
       console.log(binanceSocket);
       var tradeDiv = document.getElementById("trades"); // Getting reference to trades section created using div
+
+         
       binanceSocket.onmessage = (event) => {
         console.log(event.data);
         // Inside onmessage event we process the event.data, this is a JSON string, we want to access it as an object, so that we can get individual attribute
+
         var messageObject = JSON.parse(event.data);
         // Append to tradeDiv whatever we want from messageObject
-        /* tradeDiv.append(
+         tradeDiv.append(
           "Price of " + messageObject.s + " is: 💲" + messageObject.p + "\n"
-        ); */
+        );
         tradeDiv.append(messageObject.p);
       };
+    */
     </script>
+
+    <!-- Script for chart to be displayed -->
+    <script src="chart.js"></script>
   </body>
 </html>
