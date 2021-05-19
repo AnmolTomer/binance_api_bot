@@ -1,6 +1,11 @@
-# binance_api
+# binance_api_bot
 
-My experiments with Binance API with a goal to make TA backed trading bot.
+> :warning: **WORK IN PROGRESS** :warning:
+
+- Actively being developed as of 20-05-2021.
+
+- Check `01_cosmicview` directory for flask and js code used for plotting charts and fetching prices, placing orders. ✅
+- Check `*_Notes.md` files to see the different increments and development of the project. ✅
 
 > **Sources:**
 
