@@ -100,6 +100,8 @@
       </ul> -->
       <h3>Balances</h3>
       <table>
+        <th>Token</th>
+        <th>Tokens Held</th>
         {% for balance in my_balances %} {% if (balance['free'] | int > 0) %}
         <tr>
           <td>{{balance['asset']}}</td>
