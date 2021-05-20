@@ -56,13 +56,10 @@ var binanceSocket = new WebSocket(
 
 
 binanceSocket.onmessage = function (event) {
-    console.log(event.data)
-
-
     var message = JSON.parse(event.data)
     // make new variable to be sent to chart
     var candlestick = message.k
-
+    console.log(candlestick)
     // update with time, open, high, low, close value to add to chart
     candleSeries.update({
         // time: Date.now(), // For Testing

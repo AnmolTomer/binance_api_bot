@@ -28,29 +28,6 @@
     <div id="chart"></div>
     <div id="trades"></div>
 
-    <!-- User placeholder section for configurable RSI Component-->
-    <h3>Settings</h3>
-    <div id="settings">
-      RSI <input type="checkbox" />
-      <input type="text" name="rsi_length" id="rsi_length" placeholder="14" />
-      <!-- RSI to tell you when a coin is oversold or overbought, default being 30 and 70 -->
-      Overbought
-      <input
-        type="text"
-        id="rsi_overbought"
-        name="rsi_overbought"
-        placeholder="70"
-      />
-
-      Oversold
-      <input
-        type="text"
-        id="rsi_oversold"
-        name="rsi_oversold"
-        placeholder="30"
-      />
-    </div>
-
     <div
       style="
         border: solid gray 1px;
@@ -89,6 +66,29 @@
         </select>
         <input type="submit" name="buy" value="buy" />
       </form>
+    </div>
+
+    <!-- User placeholder section for configurable RSI Component-->
+    <h3>Settings</h3>
+    <div id="settings">
+      RSI <input type="checkbox" />
+      <input type="text" name="rsi_length" id="rsi_length" placeholder="14" />
+      <!-- RSI to tell you when a coin is oversold or overbought, default being 30 and 70 -->
+      Overbought
+      <input
+        type="text"
+        id="rsi_overbought"
+        name="rsi_overbought"
+        placeholder="70"
+      />
+
+      Oversold
+      <input
+        type="text"
+        id="rsi_oversold"
+        name="rsi_oversold"
+        placeholder="30"
+      />
     </div>
 
     <!-- Line 40 typecast balance['free'] into int and compare-->
