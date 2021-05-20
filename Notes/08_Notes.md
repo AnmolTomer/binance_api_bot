@@ -17,3 +17,7 @@
 - Real time data added to chart and console
 
 ![](https://i.imgur.com/goE4rBC.png)
+
+- Next, we stream and add data in real time to the chart. Connect to the binance websocket stream and instead of logging to the console, add the WSS stream to the chart.
+
+- Real Time Demo Video: [Here](https://i.imgur.com/3ZurzD3.mp4)

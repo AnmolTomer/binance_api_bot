@@ -37,9 +37,7 @@ var candleSeries = chart.addCandlestickSeries({
     wickUpColor: 'rgba(50, 205, 50, 1)',
 });
 
-// fetch function to get data from backend
-
-
+// fetch function to get data from backend from python /history path that has data coming to it in json format
 // Go to developer tools Network >> history >> response to see if data is coming in
 fetch('http://localhost:5000/history')
     .then((r) => r.json())
@@ -48,6 +46,38 @@ fetch('http://localhost:5000/history')
 
         candleSeries.setData(response);
     })
+
+// Get data in real time using WSS
+
+var binanceSocket = new WebSocket(
+    "wss://stream.binance.com:9443/ws/btcusdt@kline_15m"
+);
+
+
+
+binanceSocket.onmessage = function (event) {
+    console.log(event.data)
+
+
+    var message = JSON.parse(event.data)
+    // make new variable to be sent to chart
+    var candlestick = message.k
+
+    // update with time, open, high, low, close value to add to chart
+    candleSeries.update({
+        // time: Date.now(), // For Testing
+        time: candlestick.t / 1000,
+        open: candlestick.o,
+        high: candlestick.h,
+        low: candlestick.l,
+        close: candlestick.c,
+    })
+
+    console.log(message.k)
+}
+
+
+
 // Simple chart
 /* const chart = LightweightCharts.createChart(document.getElementById('chart'), {
     width: 400,
