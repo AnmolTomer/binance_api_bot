@@ -4,7 +4,7 @@
 
 - Do `flask run` and this will start a web server on `localhost:5000`. Refer: https://flask.palletsprojects.com/en/1.1.x/quickstart/
 
-- On powershell to enable debug mode `$env:FLASK_ENV = "development"`, this will reload the application automatically. Reference: https://stackoverflow.com/a/63056713/9719106
+- On powershell to enable debug mode and run the flask app `$env:FLASK_APP = .\app.py;$env:FLASK_ENV = "development";flask run`, this will reload the application automatically. Reference: https://stackoverflow.com/a/63056713/9719106
 
 - Flask templates are `jinja2` templates. [Jinja Documentation](https://jinja.palletsprojects.com/en/3.0.x/)
 

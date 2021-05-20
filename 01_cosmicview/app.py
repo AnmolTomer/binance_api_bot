@@ -1,5 +1,5 @@
 # Import Flask from flask package
-from flask import Flask, render_template, request, flash, redirect
+from flask import Flask, render_template, request, flash, redirect, jsonify
 import config
 import csv
 from binance.enums import *
@@ -52,3 +52,27 @@ def sell():
 @app.route('/settings')
 def settings():
     return 'Settings'
+
+
+@app.route('/history')
+def history():
+    candlesticks = client.get_historical_klines(
+        "BTCUSDT", Client.KLINE_INTERVAL_15MINUTE, "1 May, 2021", "20 May, 2021")
+# Processed candlesticks where the format is same as what's required by lightweight-charts
+    processed_candlesticks = []
+ # format we want to append to processed_candlesticks => {'time': '2020-05-01',open: 180.34,high: 180.99, low: 178.57, close: 179.85}
+    for data in candlesticks:
+        data[0] /= 1000
+        candlestick = {'time': data[0],
+                       "open": data[1],
+                       "high": data[2],
+                       "low": data[3],
+                       "close": data[4]
+                       }
+
+        processed_candlesticks.append(candlestick)
+
+    if(candlesticks):
+        print("Successfully retrieved klines.✅")
+    return jsonify(processed_candlesticks)
+# Import jsonify and this will allow us to take data and return python list as json
