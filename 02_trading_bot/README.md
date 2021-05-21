@@ -27,3 +27,18 @@
 - Since we are using RSI indicator, we care about closing final value of each candle stick and due to this reason we need to capture the closing value. We create an is_candle_closed var to keep a track of this. Then we store in `closes[]` list the last closed values of candlestick after checking which will be sent to TA-Lib for RSI calculation.
 
 ![](https://i.imgur.com/8JlFm2M.png)
+
+- RSI Indicator when a coin is overbought RSI value goes above 70 and value goes below 30 when coin is oversold. RSI Calculation on realtime 1minute candlestick data
+
+![](https://i.imgur.com/B0aVZFE.png)
+
+![](https://i.imgur.com/hhKvIki.png)
+
+![](https://i.imgur.com/L8rFw3D.png)
+
+---
+
+## References
+
+- [Python Binance Package](https://python-binance.readthedocs.io/en/latest/index.html)
+- [Binance Spot API WSS](https://github.com/binance/binance-spot-api-docs/blob/master/web-socket-streams.md)
