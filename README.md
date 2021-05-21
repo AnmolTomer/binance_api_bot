@@ -1,5 +1,7 @@
 # binance_api_bot
 
+![](https://logodownload.org/wp-content/uploads/2021/03/binance-logo-1.png)
+
 > :warning: **WORK IN PROGRESS** :warning:
 
 - Collection of multiple mini projects made while experimenting with Binance API, trying technical analysis libraries, backtrader package and following binance academy guides and so on.
