@@ -2,54 +2,14 @@
 
 > :warning: **WORK IN PROGRESS** :warning:
 
-- Actively being developed as of 20-05-2021.
+- Collection of multiple mini projects made while experimenting with Binance API, trying technical analysis libraries, backtrader package and following binance academy guides and so on.
 
-- Check `01_cosmicview` directory for flask and js code used for plotting charts and fetching prices, placing orders. ✅
-- Check `*_Notes.md` files to see the different increments and development of the project. ✅
+- [01_cosmic_view](01_cosmic_view) : Flask webapp which displays all the coins currently a user holds both in spot as well as savings wallet with an ability to buy coins from a dropdown window to select from. Could have a better UI, functionally tested, working as intended.
 
-> **Sources:**
+- [02_trading_bot](./02_trading_bot) : Simple CLI based Trading Bot that is connected to TA-Lib and looks for a certain threshold of RSI value and when the share is overbought i.e. RSI > 70 it closes off the position automatically, and at oversold i.e. RSI < 30 opens the position by purchasing the specified quantity of a given token.
 
-- [Hacking The Markets](https://discuss.hackingthemarkets.com/)
-- [Lightweight Charts](http://tradingview.com/lightweight-charts)
+- Strategy could be made better by taking in Bollinger Bands, MACD instead of only using RSI but the proof of concept is implemented, strategy for trading needs to be made better. Programatically the solution is end to end.
 
----
+- Receives the data in web socket streams from binance in JSON form, converts the json objects into python list using `json.loads()`, check if the data belongs to final candle of 1 minute time frame, because for RSI we only need closing position of a candle.
 
-## Binance Part1 - Websockets and Real-Time Lightweight Charts
-
-- What is binance and how does it compare to other exchanges?
-- Why crypto? Open on nights and weekends, learn new things by doing.
-- wscat - connect to websocket from the command line
-- Capture output to a file
-- Connect to websocket from the Web/JavaScript
-- Lightweight Charts - Create real-time candle stick chart similar to trading view
-- UI to check for Indicators e.g. RSI, MACD, configure values, configure alerts/notifications.
-
----
-
-## Binance Part 2 - Technical Analysis with Python and TALib
-
-- Connect to websockets from Python, write candlestick data to CSV
-- Download some historical data using a REST API
-- Install TALib, try out some indicators on a dataset.
-
----
-
-## Binance Part 3 - Backtesting with Backtrader and TALib Indicators
-
-- Test some indicators against a historical
-- Plot some pretty charts with buy and sell points, results
-
----
-
-## Binance Part 4 - Building an API for indicator settings
-
-- API endpoint to save / persist indicator
-- Using settings from Python websocket process
-- API endpoint for executing a buy order
-- API endpoint for sending notification
-
----
-
-## Binance Part 5 - Finishing Up
-
-- Enhancements to UI
+- Check the RSI threshold, do buy, sell order by hitting the binance-python order end point value as per RSI threshold.
